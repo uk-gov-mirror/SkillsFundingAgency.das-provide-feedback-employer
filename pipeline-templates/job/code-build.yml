@@ -29,16 +29,6 @@ jobs:
       zipAfterPublish: true
 
   - task: DotNetCoreCLI@2
-    displayName: Publish - dotnet publish UIApp
-    inputs:
-      command: publish
-      publishWebProjects: false
-      projects: src/Employer/${{ parameters.SolutionBaseName }}/${{ parameters.SolutionBaseName }}.csproj
-      arguments: -o $(build.artifactstagingdirectory)/publish -c ${{ parameters.BuildConfiguration }} --no-build
-      modifyOutputPath: true
-      zipAfterPublish: true
-
-  - task: DotNetCoreCLI@2
     displayName: Publish - dotnet publish ApiApp
     inputs:
       command: publish
